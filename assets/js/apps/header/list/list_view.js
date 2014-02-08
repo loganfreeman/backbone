@@ -2,20 +2,27 @@ define(["app",
         "tpl!apps/header/list/templates/list.tpl",
         "tpl!apps/header/list/templates/list_item.tpl",
         "tpl!apps/header/list/templates/dropdown_menu.tpl",
+        "tpl!apps/header/list/templates/bootstrap_menu.tpl",
         'bootstrap/bootstrap-dropdown'],
-        function(ContactManager, listTpl, listItemTpl, dropdownMnTpl){
+        function(ContactManager, listTpl, listItemTpl, dropdownMnTpl, bootstrapMenuTpl){
   ContactManager.module("HeaderApp.List.View", function(View, ContactManager, Backbone, Marionette, $, _){
     View.Header = Marionette.ItemView.extend({
       template: listItemTpl,
       tagName: "li",
 
       events: {
-        "click a": "navigate"
+        "click a": "navigate",
+        "click #javascript-file-encrypter": "showEncrypter"
       },
-      
+      showEncrypter: function(){
+    	  window.location.href = "demo/javascript-file-encrypter/";
+      },
       setTemplate: function(){
     	  if(this.model.get('name') == 'Frameworks') {
     		  this.template = dropdownMnTpl;
+    	  }
+    	  if(this.model.get('name') == 'Bootstrap') {
+    		  this.template = bootstrapMenuTpl;
     	  }
       },
       navigate: function(e){
