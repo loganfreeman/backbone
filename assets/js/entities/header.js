@@ -19,8 +19,9 @@ define(["app", "backbone.picky"], function(ContactManager){
     var initializeHeaders = function(){
       Entities.headers = new Entities.HeaderCollection([
         { name: "Contacts", url: "contacts", navigationTrigger: "contacts:list" },
-        { name: "About", url: "about", navigationTrigger: "about:show" },
-        {name: "Widgets", url: "widgets", navigationTrigger: "widgets:show"}
+        {name: "Widgets", url: "widgets", navigationTrigger: "widgets:show"},
+        {name: "Frameworks", url: "frameworks", navigationTrigger: "frameworks:show"},
+        { name: "About", url: "about", navigationTrigger: "about:show" }
       ]);
     };
 
